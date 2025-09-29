@@ -45,6 +45,12 @@
     quick-tap-ms = <150>;
 };
 
+&uc {
+    default-mode = <UC_MODE_WIN_COMPOSE>;  // Replace with desired input system.
+    win-compose-key = <RALT>;  // replace with desired key   
+    minimum-length = <4>;
+};
+
 / {
     behaviors { 
 
