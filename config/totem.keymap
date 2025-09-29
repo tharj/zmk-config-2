@@ -24,9 +24,9 @@
 #define Fun         3
 #define Game        4
 #define Gameplus    5
-#define KeysLeft 1,2,3,4,10,11,12,13,14,20,21,22,23,24,25
-#define KeysRight 5,6,7,8,9,15,16,17,18,19,26,27,28,29,30,31
-#define Thumbs 32,33,34,35,36,37
+#define KeysLeft 1 2 34 10 11 12 13 14 20 21 22 23 24 25
+#define KeysRight 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31
+#define Thumbs 32 33 34 35 36 37
 
 #define UC_AE  0xe4  0xc4  // ä/Ä USAGE - &uc UC_AE /* ä/Ä - same as &uc 0xE4 0xC4 */
 #define UC_AO  0xe5  0xc5  // å/Å
@@ -63,7 +63,7 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KeysRight, Thumbs>; // List of keys on the right side of the keyboard
+            hold-trigger-key-positions = <KeysRight Thumbs>; // List of keys on the right side of the keyboard
             hold-trigger-on-release;
         };
 
@@ -75,7 +75,7 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KeysLeft, Thumbs>; // List of keys on the left side of the keyboard
+            hold-trigger-key-positions = <KeysLeft Thumbs>; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
         };
 
@@ -87,7 +87,7 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&uc>;
-            hold-trigger-key-positions = <KeysLeft, Thumbs>; // List of keys on the left side of the keyboard
+            hold-trigger-key-positions = <KeysLeft Thumbs>; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
         };
 
