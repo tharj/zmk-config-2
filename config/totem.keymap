@@ -67,7 +67,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <110>;
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
@@ -79,7 +79,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <110>;
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
@@ -91,7 +91,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <110>;
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&uc>;
@@ -113,6 +113,22 @@
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        
+        mmoe: modmorphOE {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mmOE";
+            #binding-cells = <0>;
+            bindings = <&uc UC_OE>, <&kp SEMICOLON>;
+            mods = <(MOD_LCTL|MOD_LALT)>;
+        };
+
+        mmae: modmorphAE {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mmOA";
+            #binding-cells = <0>;
+            bindings = <&uc UC_AE>, <&kp SLASH>;
+            mods = <(MOD_LCTL|MOD_LALT)>;
         };
 
         lt_bspc: layer_tap_bspc_del {
@@ -161,11 +177,11 @@
 //            ╭────────────────┬──────────────┬──────────────┬──────────────┬──────────────╮  ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
                      &kp Q          &kp W          &kp E          &kp R          &kp T              &kp Y         &kp U          &kp I          &kp O        &hmr RGUI P
 //            ├────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-                  &hml LGUI A     &hml LALT S   &hml LCTRL D   &hml LSHIFT F     &kp G              &kp H      &hmr RSHFT J   &hmr RCTRL K   &hmr RALT L     &uc UC_OE      // semicolon to numlayer or a modmorph behind ctrl or alt
+                  &hml LGUI A     &hml LALT S   &hml LCTRL D   &hml LSHIFT F     &kp G              &kp H      &hmr RSHFT J   &hmr RCTRL K   &hmr RALT L       &mmoe      // semicolon to numlayer or a modmorph behind ctrl or alt, or a combo
 //╭───────────┼────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────╮
-  &lt 1 ESCAPE       &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N         &kp M        &kp COMMA       &kp DOT       &uc UC_AE    &kp SINGLE_QUOTE // fslash or quote to numlyer a modmorph behind ctrl or alt
+  &mt LCTRL ESCAPE   &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N         &kp M        &kp COMMA       &kp DOT         &mmae     &kp SINGLE_QUOTE // fslash or quote to numlyer a modmorph behind ctrl or alt, or a combo
 //╰───────────┴────────────────┴──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┤──────────────┴──────────────┴──────────────╯
-                                                &mt LCTRL DEL    &spc_bspc      &kp SPACE     &mt RSHFT RETURN  &lt_bspc 2 0    &kp MINUS
+                                                 &lt 1 DEL      &spc_bspc      &kp TAB        &mt RSHFT RETURN  &lt_bspc 2 0    &kp MINUS
 //                                            ╰──────────────┴──────────────┴──────────────╯  ╰──────────────┴──────────────┴──────────────╯
             >;  
         };
@@ -201,3 +217,8 @@
         };
     };
 };
+
+&kp ESC      &kp EXCL  &kp AT &kp HASH &kp DOLLAR &kp PERCENT       &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR   &trans 
+&lt_bspc 2 0 &kp N1    &kp N2 &kp N3   &kp N4     &kp N5            &kp GRAVE  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT   &trans
+&kp LCTRL    &kp N6    &kp N7 &kp N8   &kp N9     &kp N0            &kp TILDE  &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC   &trans
+                              &dot_com &lt 2 SPC  &trans            &trans     &trans
