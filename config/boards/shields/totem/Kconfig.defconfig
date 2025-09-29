@@ -1,6 +1,10 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
+
+config ZMK_UNICODE_TAP_MS=10
+config ZMK_UNICODE_WAIT_MS=5
+
 if SHIELD_TOTEM_DONGLE
 
 config ZMK_KEYBOARD_NAME
