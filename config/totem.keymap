@@ -10,6 +10,14 @@
 //
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
+//   ╭────────────────────┬────────────────────╮   
+//   │  0   1   2   3   4 │  5   6   7   8   9 │   
+//   │ 10  11  12  13  14 │ 15  16  17  18  19 │   
+//  20 21  22  23  24  25 │ 26  27  28  29  30 31  
+//   ╰───────╮ 32  33  34 │ 35  36  37 ╭───────╯    
+//           ╰────────────┴────────────╯             
+
+
 // #include <zmk-helpers/helper.h>
 #include <behaviors.dtsi>
 #include <behaviors/mouse_keys.dtsi>
@@ -30,6 +38,7 @@
 #define UC_AO  0xe5  0xc5  // å/Å
 #define UC_OE  0xf6  0xd6  // ö/Ö
 
+/*
 &mt {
     quick-tap-ms = <100>;
     global-quick-tap;
@@ -42,6 +51,7 @@
     flavor = "balanced";
     quick-tap-ms = <150>;
 };
+*/
 
 &uc {
     default-mode = <UC_MODE_WIN_COMPOSE>;  // Replace with desired input system.
@@ -94,7 +104,7 @@
             label = "SPACE_BACKSPACE";
             #binding-cells = <0>;
             bindings = <&kp SPACE>, <&kp BACKSPACE>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
         bspc_del: backspace_delete {
@@ -102,7 +112,7 @@
             label = "BACKSPACE_DELETE";
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
-            mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         lt_bspc: layer_tap_bspc_del {
@@ -115,7 +125,32 @@
 
     };
 
-//    combos { compatible = "zmk,combos"; };
+    combos { 
+        compatible = "zmk,combos"; 
+    
+        Bootloader { // combo invokes central board, i.e. dongle
+            bindings = <&bootloader>;
+            key-positions = <20 31>;
+        };
+
+        CapsWord {
+            bindings = <&caps_word>;
+            key-positions = <14 15>;
+            layers = <0>;
+        };
+
+        // arrow combos for one handed youtube sponsor skipping
+        RightArrow { 
+            bindings = <&kp RIGHT>;
+            key-positions = <30 31>;
+        }; 
+
+        LeftArrow {
+            bindings = <&kp LEFT>;
+            key-positions = <19 29>;
+        }; 
+
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -126,9 +161,9 @@
 //            ╭────────────────┬──────────────┬──────────────┬──────────────┬──────────────╮  ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
                      &kp Q          &kp W          &kp E          &kp R          &kp T              &kp Y         &kp U          &kp I          &kp O        &hmr RGUI P
 //            ├────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-                  &hml LGUI A     &hml LALT S   &hml LCTRL D   &hml LSHIFT F     &kp G              &kp H      &hmr RSHFT J   &hmr RCTRL K   &hmr RALT L     &uc UC_OE      // semicolon to numlayer
+                  &hml LGUI A     &hml LALT S   &hml LCTRL D   &hml LSHIFT F     &kp G              &kp H      &hmr RSHFT J   &hmr RCTRL K   &hmr RALT L     &uc UC_OE      // semicolon to numlayer or a modmorph behind ctrl or alt
 //╭───────────┼────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────╮
-  &lt 1 ESCAPE       &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N         &kp M        &kp COMMA       &kp DOT       &uc UC_AE    &kp SINGLE_QUOTE // fslash or quote to numlyer
+  &lt 1 ESCAPE       &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N         &kp M        &kp COMMA       &kp DOT       &uc UC_AE    &kp SINGLE_QUOTE // fslash or quote to numlyer a modmorph behind ctrl or alt
 //╰───────────┴────────────────┴──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┤──────────────┴──────────────┴──────────────╯
                                                 &mt LCTRL DEL    &spc_bspc      &kp SPACE     &mt RSHFT RETURN  &lt_bspc 2 0    &kp MINUS
 //                                            ╰──────────────┴──────────────┴──────────────╯  ╰──────────────┴──────────────┴──────────────╯
