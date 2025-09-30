@@ -164,6 +164,13 @@
             quick-tap-ms = <175>;
         };
 
+        dot_com: dot_comma {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COMMA>;
+            mods = <(MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT)>;
+        };
+
     };
 
     combos { 
@@ -179,6 +186,11 @@
             key-positions = <14 15>;
             layers = <0>;
         };
+
+        ToBase {
+            bindings = <&to 0>;
+            key-positions = <34 35>;
+        }; 
 
         // arrow combos for one handed youtube sponsor skipping
         RightArrow { 
@@ -202,11 +214,11 @@
 //            ╭────────────────┬──────────────┬──────────────┬──────────────┬──────────────╮  ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
                      &kp Q          &kp W          &kp E          &kp R          &kp T              &kp Y         &kp U          &kp I          &kp O        &hmrg RGUI P
 //            ├────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-                  &hmlg LGUI A     &hml LALT S   &hml LCTRL D   &hml LSHIFT F     &kp G              &kp H      &hmr RSHFT J   &hmr RCTRL K   &hmr RALT L       &mmoe      // semicolon to numlayer or a modmorph behind ctrl or alt, or a combo
+                  &hmlg LGUI A     &hml LALT S   &hml LCTRL D   &hml LSHIFT F     &kp G              &kp H      &hmr RSHFT J   &hmr RCTRL K   &hmr RALT L      &mmoe      // semicolon to numlayer or a modmorph behind ctrl or alt, or a combo
 //╭───────────┼────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────╮
   &mt LCTRL ESCAPE   &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N         &kp M        &kp COMMA       &kp DOT         &mmae     &kp SINGLE_QUOTE // fslash or quote to numlyer a modmorph behind ctrl or alt, or a combo
 //╰───────────┴────────────────┴──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┤──────────────┴──────────────┴──────────────╯
-                                                 &lt 1 DEL      &spc_bspc      &kp TAB        &mt RSHFT RETURN  &lt_bspc 2 0    &kp MINUS
+                                                 &lt 1 DEL      &spc_bspc    &mt LSHIFT TAB   &mt RSHFT RETURN  &lt_bspc 2 0    &kp MINUS
 //                                            ╰──────────────┴──────────────┴──────────────╯  ╰──────────────┴──────────────┴──────────────╯
             >;  
         };
@@ -230,11 +242,11 @@
             display-name = "Num";
             bindings = <
 //            ╭────────────────┬──────────────┬──────────────┬──────────────┬──────────────╮  ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-                    &none           &none          &none          &none          &none              &none         &kp HOME        &none        &kp PG_UP     &kp C_VOLUME_DOWN  
+                    &kp EXCL       &kp AT        &kp HASH       &kp DOLLAR     &kp PERCENT       &kp CARET       &kp AMPS      &kp ASTRK       &kp LPAR       &kp RPAR  
 //            ├────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-                 &hml LGUI N1    &hml LALT N2   &hml LCTRL N3  &hml LSHIFT N4    &kp N5          &kp LEFT    &hmr RSHFT DOWN &hmr RCTRL UP &hmr RALT RIGHT   &hmr RGUI SEMICOLON
+                 &hml LGUI N1    &hml LALT N2   &hml LCTRL N3  &hml LSHIFT N4    &kp N5          &kp GRAVE  &hmr RSHFT MINUS &hmr RCTRL EQUAL &hmr RALT LBKT &kp SEMICOLON
 //╭───────────┼────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────╮
-  &trans            &kp N6          &kp N7         &kp N8         &kp N9         &kp N0             &none         &kp END         &none         &kp PG_DN        &none       &kp C_PLAY_PAUSE
+  &trans            &kp N6          &kp N7         &kp N8         &kp N9         &kp N0          &kp TILDE       &kp UNDER       &kp PLUS      &kp LBRC       &kp RBRC   &kp SINGLE_QUOTE
 //╰───────────┴────────────────┴──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┤──────────────┴──────────────┴──────────────╯
                                                    &to 0         &trans          &trans            &trans       &bspc_del      &kp DOT
 //                                            ╰──────────────┴──────────────┴──────────────╯  ╰──────────────┴──────────────┴──────────────╯
