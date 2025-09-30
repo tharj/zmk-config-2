@@ -29,7 +29,7 @@
 #define Nav         1
 #define Num         2
 
-#define KeysLeft 1 2 34 10 11 12 13 14 20 21 22 23 24 25
+#define KeysLeft 1 2 3 4 10 11 12 13 14 20 21 22 23 24 25
 #define KeysRight 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31
 #define Thumbs 32 33 34 35 36 37
 
