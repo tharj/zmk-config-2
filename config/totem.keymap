@@ -38,14 +38,14 @@
 #define UC_AO  0xe5  0xc5  // å/Å
 #define UC_OE  0xf6  0xd6  // ö/Ö
 
-
+/*
 &mt {
     quick-tap-ms = <140>;
     global-quick-tap;
     //flavor = "tap-preferred";
     //tapping-term-ms = <170>;
 };
-/*
+
 &lt {
     tapping-term-ms = <240>;
     flavor = "balanced";
