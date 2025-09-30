@@ -35,8 +35,8 @@
 #define KeysRight   5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31
 #define Thumbs      32 33 34 35 36 37
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+//#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+//#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 #define UC_AE  0xe4  0xc4  // ä/Ä USAGE - &uc UC_AE /* ä/Ä - same as &uc 0xE4 0xC4 */
 #define UC_OEL  0xf6 // ö
