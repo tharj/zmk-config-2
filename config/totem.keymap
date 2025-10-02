@@ -166,7 +166,7 @@
             #binding-cells = <2>;
             bindings = <&mo>, <&bspc_del>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
+            // quick-tap-ms = <175>;
         };
 
         dot_com: dot_comma {
