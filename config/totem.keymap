@@ -224,7 +224,7 @@
 //╭───────────┼────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────╮
   &mt LCTRL ESCAPE   &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N         &kp M        &kp COMMA       &kp DOT         &mmae     &kp SINGLE_QUOTE // fslash or quote to numlyer a modmorph behind ctrl or alt, or a combo
 //╰───────────┴────────────────┴──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┤──────────────┴──────────────┴──────────────╯
-                                                 &lt 1 DEL      &spc_bspc    &mt LSHIFT TAB   &mt RSHFT RETURN  &lt_bspc 2 0    &to 3
+                                                 &lt 1 TAB      &spc_bspc  &mt LSHIFT RETURN  &mt RSHFT RETURN &lt_bspc 2 0    &to 3           // add a modmorph to TAB to enable return on left hand, mind the homerow mods for alt tab etc. or a homerow combo with 3 fingers or change tab and enter / left-right around
 //                                            ╰──────────────┴──────────────┴──────────────╯  ╰──────────────┴──────────────┴──────────────╯
             >;  
         };
