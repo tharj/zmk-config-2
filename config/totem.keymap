@@ -161,6 +161,30 @@
             mods = <(MOD_LCTL|MOD_LALT)>;
         };
 
+        mmplus: modmorphPlusComma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mmplus";
+            #binding-cells = <0>;
+            bindings = <&kp PLUS>, <&kp COMMA>;
+            mods = <(MOD_LCTL|MOD_LALT)>;
+        };
+
+        mmlbrc: modmorphLBrcDot {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mmlbrc";
+            #binding-cells = <0>;
+            bindings = <&kp LBRC>, <&kp DOT>;
+            mods = <(MOD_LCTL|MOD_LALT)>;
+        };
+
+        mmrbrc: modmorphRBrcSemicolon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mmrbrc";
+            #binding-cells = <0>;
+            bindings = <&kp RBRC>, <&kp COMMA>;
+            mods = <(MOD_LCTL|MOD_LALT)>;
+        };
+
         lt_bspc: layer_tap_bspc_del {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_BACKSPACE_DELETE";
@@ -252,7 +276,7 @@
 //            ├────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
                  &hml LGUI N1    &hml LALT N2   &hml LCTRL N3  &hml LSHIFT N4    &kp N5          &kp GRAVE  &hmr RSHFT MINUS &hmr RCTRL EQUAL &hmr RALT LBKT &kp RBKT
 //╭───────────┼────────────────┼──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────╮
-  &trans            &kp N6          &kp N7         &kp N8         &kp N9         &kp N0          &kp TILDE       &kp UNDER       &kp PLUS      &kp LBRC       &kp RBRC   &kp SINGLE_QUOTE
+  &trans            &kp N6          &kp N7         &kp N8         &kp N9         &kp N0          &kp TILDE       &kp UNDER      &mmplus        &mmlbrc        &mmrbrc    &kp SINGLE_QUOTE
 //╰───────────┴────────────────┴──────────────┼──────────────┼──────────────┼──────────────┤  ├──────────────┼──────────────┼──────────────┤──────────────┴──────────────┴──────────────╯
                                                    &to 0         &trans          &trans            &trans       &bspc_del      &kp DOT
 //                                            ╰──────────────┴──────────────┴──────────────╯  ╰──────────────┴──────────────┴──────────────╯
