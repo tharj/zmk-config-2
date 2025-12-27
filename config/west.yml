@@ -13,7 +13,7 @@ manifest:
       import: app/west.yml
     - name: prospector-zmk-module
       remote: carrefinho
-      revision: v0.3
+      revision: main
     - name: zmk-helpers
       remote: urob
       revision: v0.3
